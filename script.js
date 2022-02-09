@@ -15,6 +15,12 @@ const gamePossibilyts = [line1, line2, line3, col1, col2, col3, diag1, diag2];
 // Array que armazena as jogadas de cada jogador
 const played = [];
 
+function victory(array) {
+  array.forEach((value) => {
+    document.getElementById(value).style.border = 'solid 2px yellow';
+  })
+}
+
 function atack() {
   // se a casa do meio anda não houver sido marcada, o script vai atacar por lá.
   if (played[4] !== 'player-1' && played[4] !== 'player-2') {
@@ -35,12 +41,21 @@ function atack() {
         }
       }
 
-      if (player1 > 0) continue
+      // if (player1 > 0) continue
 
       if (player2 > 0 && empity !== null || player2 === 0 && empity !== null) {
         document.getElementById(empity).className += ' player-2';
         played[empity] = 'player-2';
         break;
+      }
+      
+      for (let index in played) {
+        if (played[index] === undefined) {
+          document.getElementById(empity).className += ' player-2';
+          played[empity] = 'player-2';
+          console.log(played[index]);
+          break;
+        }
       }
       player2 = 0;
       empity = null;
@@ -71,6 +86,7 @@ function defend() {
       document.getElementById(empity).className += ' player-2';
       played[empity] = 'player-2';
       defended = true;
+      victory(gamePossibilyts[index]);
       break
     }
     player1 = 0;
@@ -84,12 +100,20 @@ function defend() {
 
 function addListem() {
   const marks = document.querySelectorAll('.mark');
+  let player1_victory = false;
   marks.forEach((mark) => {
     mark.addEventListener('click', (event) => {
       event.target.className += ' player-1';
       played[event.target.id] = 'player-1';
+
+      for (let values of gamePossibilyts) {
+
+        player1_victory = values.every((value) => played[value] === 'player-1');
+        if (player1_victory) victory(values);
+      }
       console.log(played);
-      defend();
+
+      if (!player1_victory) defend();
     })
   })
 }
