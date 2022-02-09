@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(21, 32, 43);
+}
+
+main {
+  padding: 50px;
+}
+
+section {
+  display: flex;
+  margin: auto;
+  width: 160px;
+  height: 160px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.mark {
+  width: 50px;
+  height: 50px;
+  border: solid 1px aliceblue;
+}
+
+.player-1 {
+  background-color: aqua;
+}
+
+.player-2 {
+  background-color: magenta;
+}
