@@ -4,7 +4,7 @@ const line2 = [3, 4, 5];
 const line3 = [6, 7, 8];
 
 const col1 = [0, 3, 6];
-const col2 = [1, 4, 7];
+const col2 = [1, 4, 7]; 
 const col3 = [2, 5, 8];
 
 const diag1 = [0, 4, 8];

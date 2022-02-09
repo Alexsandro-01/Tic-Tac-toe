@@ -7,7 +7,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background-color: rgb(21, 32, 43);
+  background-color: #15202b;
 }
 
 main {
@@ -30,9 +30,12 @@ section {
 }
 
 .player-1 {
-  background-color: aqua;
+  background-image: url('images/circle.png');
+  background-size: cover;
 }
 
 .player-2 {
-  background-color: magenta;
+  background-image: url('images/X.png');
+  background-size: cover;
+  background-color: #ff00ff;
 }
